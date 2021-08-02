@@ -1,0 +1,63 @@
+
+
+# ///
+# /// Top level alarm summary
+# ///
+record(bi, "$(P)$(CHANNEL):AlarmOK") {
+  field(ZNAM, "No Alarm")
+  field(ONAM, "Alarm")
+  field(OSV, "MAJOR")
+  field(PINI, "YES")
+  field(VAL, "0")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+# ///
+# /// Disable top level alarm
+# ///
+record(bo, "$(P)$(CHANNEL):AlarmDisable") {
+  field(DESC, "Disable Alarms")
+  field(PINI, "YES")
+  field(VAL, "0")
+  field(OMSL, "supervisory")
+  field(ZNAM, "Alarm Enabled")
+  field(ONAM, "Alarm Disabled")
+  field(ZSV, "NO_ALARM")
+  field(OSV, "MINOR")
+  field(FLNK, "$(P)$(CHANNEL):AlarmCalc")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+# ///
+# /// If we disable the alarm handling, clear the alarm status
+# ///
+record(calcout, "$(P)$(CHANNEL):AlarmClear") {
+  field(INPA, "$(P)$(CHANNEL):AlarmDisable CP")
+  field(CALC, "(A==1)?0:1")
+  field(DOPT, "Use CALC")
+  field(OOPT, "When Zero")
+  field(OUT, "$(P)$(CHANNEL):AlarmOK.VAL PP")
+}
+
+record(calc, "$(P)$(CHANNEL):AlarmCalc") {
+  field(INPA, "$(P)$(CHANNEL):FIELD:RAW CP MS")
+  field(INPB, "$(P)$(CHANNEL):FIELD:RAW.HIHI CP")
+  field(INPC, "$(P)$(CHANNEL):FIELD:RAW.LOLO CP")
+  field(CALC, "((A>B)||(A<C))?1:0")
+  field(FLNK, "$(P)$(CHANNEL):AlarmCalc2")
+  field(SDIS, "$(P)$(CHANNEL):AlarmDisable")
+}
+record(calcout, "$(P)$(CHANNEL):AlarmCalc2") {
+  field(INPA, "$(P)$(CHANNEL):AlarmCalc.STAT")
+  field(INPB, "$(P)$(CHANNEL):AlarmCalc")
+  field(CALC, "((A!=0)||(B=1))?1:0")
+  field(DOPT, "Use CALC")
+  field(OOPT, "Every Time")
+  field(OUT, "$(P)$(CHANNEL):AlarmOK PP")
+}
+
+
+
+
+

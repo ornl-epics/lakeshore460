@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>$(BL) GaussMeter</name>
+  <width>1200</width>
+  <height>700</height>
+  <actions>
+  </actions>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser</name>
+    <macros>
+      <BL>${S}</BL>
+    </macros>
+    <file>lks460plot3axis.plt</file>
+    <y>360</y>
+    <width>942</width>
+    <height>233</height>
+    <show_toolbar>true</show_toolbar>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container</name>
+    <macros>
+      <AX>X</AX>
+    </macros>
+    <file>lks460panel.opi</file>
+    <y>38</y>
+    <width>313</width>
+    <height>312</height>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_1</name>
+    <macros>
+      <AX>Y</AX>
+    </macros>
+    <file>lks460panel.opi</file>
+    <x>314</x>
+    <y>38</y>
+    <width>313</width>
+    <height>312</height>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_2</name>
+    <macros>
+      <AX>Z</AX>
+    </macros>
+    <file>lks460panel.opi</file>
+    <x>626</x>
+    <y>38</y>
+    <width>313</width>
+    <height>312</height>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>$(S):SE:G460:GlobalAlarm</pv_name>
+    <bit>0</bit>
+    <x>316</x>
+    <y>8</y>
+    <width>22</width>
+    <height>22</height>
+    <off_color>
+      <color name="OK" red="0" green="255" blue="0">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Menu Button_1</name>
+    <pv_name>$(S):SE:G460:GlobalAlarmDisable</pv_name>
+    <x>354</x>
+    <y>8</y>
+    <width>180</width>
+    <height>21</height>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>Global Alarm</text>
+    <x>216</x>
+    <y>6</y>
+    <width>108</width>
+    <height>26</height>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+</display>

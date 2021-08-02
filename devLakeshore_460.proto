@@ -1,0 +1,247 @@
+Terminator = '\r\n';
+ReplyTimeout = 500;
+ReadTimeout = 500;
+WriteTimeout = 500;
+
+getIDN {
+    out "*IDN?";	
+    in "LSCI,MODEL460,0,%s";   
+	wait 50;	
+}
+
+## Channel arguments passed though as \$1 ##
+## ExtraInput ignored due to occasional return of extra blank spaces ##
+
+getMagneticFieldReading
+{
+	out "CHNL \$1;FIELD?";
+	in "%f";
+	wait 50;
+	ExtraInput = Ignore;
+}
+
+getFieldUnitsMulti
+{
+	out "CHNL \$1;FIELDM?";
+	in "%s";
+	wait 50;	
+}
+
+getFieldUnits
+{	
+    out "CHNL X;UNIT?";
+    in "%{G|T}";
+	wait 50;	
+}
+
+setFieldUnits
+{
+    out "CHNL X;UNIT %{G|T}";
+	wait 50;	
+	@init { getFieldUnits; }
+}
+
+getStatus
+{
+    out "CHNL \$1;ONOFF?";	
+    in "%{0|1}";
+	wait 50;	
+}
+
+setStatus
+{
+	out "CHNL \$1;ONOFF %{0|1}";
+	wait 50;
+	@init { out "CHNL \$1;ONOFF?"; in "%{0|1}"; wait 50; }
+}
+
+getACDCFieldReading {
+	out "CHNL \$1;ACDC?";
+	in "%{0|1}";
+	wait 50;
+}
+
+setACDCFieldReading {
+	out "CHNL \$1;ACDC %{0|1}";
+	wait 50;
+	@init { out "CHNL \$1;ACDC?"; in "%{0|1}"; wait 50; }
+}
+
+getPRMSReading {
+	out "CHNL \$1;PRMS?";	
+	in "%{0|1}";
+	wait 50;	
+}
+
+setPRMSReading {
+	out "CHNL \$1;PRMS %{0|1}";
+	wait 50;
+	@init { out "CHNL \$1;PRMS?"; in "%{0|1}"; wait 50; }
+}
+
+getFilter {
+	out "CHNL \$1;FILT?";
+	in "%d";
+	wait 50;
+}
+
+setFilter {
+	out "CHNL \$1;FILT %{0|1}";
+	wait 50;
+	@init { out "CHNL \$1;FILT?"; in "%{0|1}"; wait 50; }
+}
+
+getRelMode {
+	out "CHNL \$1;REL?";
+	in "%{0|1}";
+	wait 50;	
+}
+
+setRelMode {
+	out "CHNL \$1;REL %{0|1}";
+	wait 50;
+	@init { out "CHNL \$1;REL?"; in "%{0|1}"; wait 50; }
+}
+
+getRelModeSetpoint {
+	out "CHNL \$1;RELS?";
+	in "%f";
+	wait 50;
+	ExtraInput = Ignore;
+}
+
+setRelModeSetpoint {
+	out "CHNL \$1;RELS %f";
+	wait 50;
+	@init { out "CHNL \$1;RELS?"; in "%f"; wait 50; }
+}
+
+getRelModeSetpointMultiplier {
+	out "CHNL \$1;RELSM?";
+	in "%s";
+	wait 50;
+}
+
+getRelModeReading {
+	out "CHNL \$1;RELR?";
+	in "%f";
+	wait 50;
+	ExtraInput = Ignore;
+}
+
+getRelModeMultiplier
+{
+	out "CHNL \$1;RELRM?";
+	in "%s";
+	wait 50;	
+}
+
+getMaxHold {
+	out "CHNL \$1;MAX?";
+	in "%{0|1}";	
+	wait 50;
+}
+
+setMaxHold {
+	out "CHNL \$1;MAX %{0|1}";
+	wait 50;
+	@init { out "CHNL \$1;MAX?"; in "%{0|1}"; wait 50; }
+}
+
+getMaxHoldMultiplier
+{
+	out "CHNL \$1;MAXRM?";
+	in "%s";	
+	wait 50;
+}
+
+getAutoRange {
+	out "CHNL \$1;AUTO?";
+	in "%{0|1}";
+	wait 50;	
+}
+
+setAutoRange {
+	out "CHNL \$1;AUTO %{0|1}";
+	wait 50;
+	@init { out "CHNL \$1;AUTO?"; in "%{0|1}"; wait 50; }
+}
+
+getAllFields {
+	out "ALLF?";
+	in "%f";
+	wait 50;	
+}
+
+getSource {
+	out "VSRC?";
+	in "%d";
+	wait 50;	
+}
+
+setSource {
+	out "VSRC %d";
+	wait 50;
+	@init { out "VSRC?"; in "%d"; wait 50; }
+}
+
+getChannel {
+	out "CHNL?";
+	in "%{X|Y|Z|V}";
+	wait 50;	
+	ExtraInput = Ignore;
+}
+
+setChannel {
+	out "CHNL %{X|Y|Z|V}";
+	wait 50;
+	@init { getChannel; }
+}
+
+getFWin {
+	out "CHNL \$1;FWIN?";
+	in "%d";
+	wait 50;	
+}
+
+setFWin {
+	out "CHNL \$1;FWIN %d";
+	wait 50;
+	@init { out "CHNL \$1;FWIN?"; in "%d"; wait 50; }
+}
+
+getFNum {
+	out "CHNL \$1;FNUM?";
+	in "%d";	
+	wait 50;
+}
+
+setFNum {
+	out "CHNL \$1;FNUM %d";
+	wait 50;
+	@init { out "CHNL \$1;FNUM?"; in "%d"; wait 50; }
+}
+
+getManualRange {
+	out "CHNL \$1;RANGE?";
+	in "%d";
+	wait 50;	
+}
+
+setManualRange {
+	out "CHNL \$1;RANGE %d";
+	wait 50;
+	@init { out "CHNL \$1;RANGE?"; in "%d"; wait 50; }
+}
+
+getMaxReading {
+	out "CHNL \$1;MAXR?";
+	in "%f";
+	wait 50;
+	ExtraInput = Ignore;
+}
+
+clearMaxHoldReading {
+	out "CHNL \$1;MAXC";
+	wait 50;
+}

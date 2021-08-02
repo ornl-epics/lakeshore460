@@ -1,0 +1,25 @@
+
+file lks460core.db {
+
+	pattern { P, PORT, CHANNEL }
+	{ "SE:SE:G460", "Lakeshore460", "X" }
+        { "SE:SE:G460", "Lakeshore460", "Y" }
+        { "SE:SE:G460", "Lakeshore460", "Z" }
+
+}
+
+file lks460Alarmsingle.db{
+
+        pattern { P, CHANNEL }
+        { "SE:SE:G460", "X" }
+        { "SE:SE:G460", "Y" }
+        { "SE:SE:G460", "Z" }
+
+}
+
+file lks460AlarmAll.db{
+
+        pattern { P }
+        { "SE:SE:G460" }
+}
+

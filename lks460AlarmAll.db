@@ -1,0 +1,24 @@
+
+record(bo, "$(P):GlobalAlarmDisable")
+{
+    field(DESC, "Disable Global Alarm")
+    field (ZNAM, "AlarmDisabled")
+    field (ONAM, "AlarmEnabled")
+    field (ZSV, "MINOR")
+    info(archive, "Monitor, 00:01:00")
+    field(PINI, "YES")
+    field(VAL, "1")
+
+}
+
+record(calc, "$(P):GlobalAlarm"){
+  field(INPA, "$(P):GlobalAlarmDisable CPP")
+  field(INPB, "$(P)X:AlarmOK CPP")
+  field(INPC, "$(P)Y:AlarmOK CPP")
+  field(INPD, "$(P)Z:AlarmOK CPP")
+  field(CALC, "A&((B>0)|C>0|D>0)")
+  field(HIHI, "1")
+  field(HHSV, "MAJOR")
+  info(archive, "Monitor, 00:01:00")
+}
+

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>$(BL) GaussMeter</name>
+  <width>290</width>
+  <height>320</height>
+  <actions>
+  </actions>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>${S}:SE:G460$(AX):FIELD:RAW</pv_name>
+    <x>115</x>
+    <y>48</y>
+    <width>90</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input</name>
+    <pv_name>${S}:SE:G460$(AX):MODE</pv_name>
+    <x>204</x>
+    <y>78</y>
+    <width>84</width>
+    <background_color>
+      <color name="Read_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>Field Raw</text>
+    <x>6</x>
+    <y>48</y>
+    <width>110</width>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>MODE
+</text>
+    <x>6</x>
+    <y>78</y>
+    <width>110</width>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Lakeshore 460 $(AX)
+</text>
+    <x>24</x>
+    <y>6</y>
+    <width>217</width>
+    <height>53</height>
+    <font>
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Choice Button</name>
+    <pv_name>$(S):SE:G460$(AX):RANGE:SP</pv_name>
+    <y>156</y>
+    <width>151</width>
+    <height>36</height>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input_1</name>
+    <pv_name>${S}:SE:G460$(AX):FIELD:RAW.HIHI</pv_name>
+    <x>115</x>
+    <y>226</y>
+    <width>90</width>
+    <background_color>
+      <color name="WritePV_Background" red="128" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input_2</name>
+    <pv_name>${S}:SE:G460$(AX):FIELD:RAW.LOLO</pv_name>
+    <x>115</x>
+    <y>255</y>
+    <width>90</width>
+    <background_color>
+      <color name="WritePV_Background" red="128" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>HIHI ALARM</text>
+    <x>6</x>
+    <y>226</y>
+    <width>90</width>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>LOLO ALARM</text>
+    <x>6</x>
+    <y>255</y>
+    <width>90</width>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>ALARM STATE</text>
+    <x>6</x>
+    <y>286</y>
+    <width>90</width>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>${S}:SE:G460$(AX):AlarmOK</pv_name>
+    <x>60</x>
+    <y>286</y>
+    <width>103</width>
+    <precision>3</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Menu Button</name>
+    <pv_name>${S}:SE:G460$(AX):AlarmDisable</pv_name>
+    <x>163</x>
+    <y>286</y>
+    <width>125</width>
+    <height>20</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="11.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_6</name>
+    <pv_name>${S}:SE:G460$(AX):FIELD:TESLA</pv_name>
+    <x>115</x>
+    <y>102</y>
+    <width>90</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_14</name>
+    <text>Field Tesla</text>
+    <x>6</x>
+    <y>102</y>
+    <width>110</width>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_7</name>
+    <pv_name>$(S):SE:G460$(AX):FIELD:GAUSS</pv_name>
+    <x>115</x>
+    <y>128</y>
+    <width>90</width>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_15</name>
+    <text>Field Gauss</text>
+    <y>128</y>
+    <width>110</width>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_1</name>
+    <pv_name>$(S):SE:G460$(AX):MODE:SP</pv_name>
+    <x>115</x>
+    <y>78</y>
+    <width>72</width>
+    <height>20</height>
+    <off_label>OFF</off_label>
+    <off_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </off_color>
+    <on_label>ON</on_label>
+    <on_color>
+      <color red="192" green="192" blue="192">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <labels_from_pv>true</labels_from_pv>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_10</name>
+    <pv_name>${S}:SE:G460$(AX):RANGE</pv_name>
+    <x>162</x>
+    <y>164</y>
+    <width>126</width>
+    <precision>3</precision>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_11</name>
+    <pv_name>${S}:SE:G460$(AX):STATUS</pv_name>
+    <x>198</x>
+    <y>191</y>
+    <width>90</width>
+    <precision>3</precision>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_19</name>
+    <text>Channel Enable</text>
+    <x>6</x>
+    <y>191</y>
+    <width>110</width>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button_4</name>
+    <pv_name>$(S):SE:G460$(AX):STATUS:SP</pv_name>
+    <x>115</x>
+    <y>191</y>
+    <width>66</width>
+    <height>20</height>
+    <off_label>OFF</off_label>
+    <off_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </off_color>
+    <on_label>ON</on_label>
+    <on_color>
+      <color red="192" green="192" blue="192">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <labels_from_pv>true</labels_from_pv>
+    <actions>
+    </actions>
+  </widget>
+</display>
